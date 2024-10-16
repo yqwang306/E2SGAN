@@ -33,7 +33,7 @@ python -u /home/wyq/projects/E2SGAN/train_cv.py \
 --leave_out tll \
 --d_aux onesided,linear \
 --notes using_onesidedattn_global_partial \
---epoch 65 \
+--epoch 60 \
 --epoch_count 0 \
 --continue_train \
 --is_IF
