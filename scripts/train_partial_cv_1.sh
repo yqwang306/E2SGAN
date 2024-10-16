@@ -1,0 +1,39 @@
+set -ex
+CUDA_VISIBLE_DEVICES=0,1 \
+python -u /home/wyq/projects/E2SGAN/train_cv.py \
+--dataroot /data/wyq/EEG-SEEG/cv_0704_60/ \
+--hostroot /home \
+--name cv_pix2pix_global_onesided_1015 \
+--model pix2pix_ae_partial \
+--direction AtoB \
+--lambda_L1 10 \
+--dataset_mode eeg \
+--norm instance \
+--pool_size 0 \
+--no_flip \
+--preprocess none \
+--init_type normal \
+--input_nc 2 \
+--output_nc 2 \
+--gpu_ids 0 \
+--gan_mode wgangp \
+--n_epochs 20 \
+--n_epochs_decay 20 \
+--display_id -1 \
+--d_lr 0.00002 \
+--g_lr 0.00001 \
+--save_epoch_freq 4 \
+--val_epoch_freq 4 \
+--n_layers_D 3 \
+--n_blocks 2 \
+--num_threads 4 \
+--ndf 16 \
+--ngf 16 \
+--lr_policy cosine \
+--leave_out tll \
+--d_aux onesided,linear \
+--notes using_onesidedattn_global_partial \
+--epoch 65 \
+--epoch_count 0 \
+--continue_train \
+--is_IF
